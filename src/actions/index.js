@@ -10,6 +10,13 @@ export function getDataDone(videos) {
   };
 }
 
+export function selectVideo(selectedVideo) {
+  return {
+    type: 'SELECT_VIDEO',
+    actualVideo: selectedVideo
+  };
+}
+
 
 export function getData(term) {
   return dispatch => {
