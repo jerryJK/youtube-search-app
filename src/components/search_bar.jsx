@@ -35,7 +35,7 @@ class SearchBar extends Component {
           className="btn btn-sm btn-danger"
           onClick={() => this.onSearchClick()}
         >
-          <span class="glyphicon glyphicon-search"></span>
+          <span className="glyphicon glyphicon-search"></span>
           Search
         </button>
       </div>
