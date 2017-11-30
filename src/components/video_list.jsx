@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import VideoListItem from '../components/video_list_item';
 
 class VideoList extends Component {
 
   render() {
 
-    const { videos } = this.props;
+    const { videos } = this.props.data;
 
     return (
       <ul className="col-md-4 list-group">
@@ -24,4 +25,10 @@ class VideoList extends Component {
 
 }
 
-export default VideoList;
+function mapStateToProps(state) {
+    const {data} = state;
+    return {data}
+}
+
+
+export default connect(mapStateToProps, null )(VideoList);

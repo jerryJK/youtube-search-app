@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { getData } from '../actions';
+
 
 class SearchBar extends Component {
   constructor(props){
@@ -13,14 +16,17 @@ class SearchBar extends Component {
   }
 
   onSearchClick() {
-    this.props.onSearchClick(this.state.term);
+    const {getData} = this.props;
+    getData(this.state.term);
   }
 
   onEnterClick(event) {
+    const {getData} = this.props;
     if (event.keyCode == 13) {
-      this.props.onSearchClick(this.state.term);
+      getData(this.state.term);
     }
   }
+
 
   render() {
     return (
@@ -44,5 +50,10 @@ class SearchBar extends Component {
 
 }
 
+function mapStateToProps(state) {
+    const {data} = state;
+    return {data}
+}
 
-export default SearchBar;
+
+export default connect(null, {getData})(SearchBar);

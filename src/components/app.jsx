@@ -13,28 +13,15 @@ class App extends Component {
       getData('');
   }
 
-  onVideoSelect = (selectedVideo) => {
-    const {selectVideo} = this.props;
-      selectVideo(selectedVideo);
-  }
-
-  onVideoSearch = (term) => {
-    const {getData} = this.props;
-      getData(term);
-  }
-
 
   render() {
     console.log('data',this.props.data);
 
     return (
       <div>
-        <SearchBar onSearchClick={this.onVideoSearch} />
-        <VideoDetail video={this.props.data.actualVideo}/>
-        <VideoList
-          onVideoSelect={this.onVideoSelect}
-          videos={this.props.data.videos}
-        />
+        <SearchBar />
+        <VideoDetail />
+        <VideoList />
       </div>
     )
   }
@@ -47,4 +34,4 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps, {getData, selectVideo })(App);
+export default connect(mapStateToProps, {getData})(App);
